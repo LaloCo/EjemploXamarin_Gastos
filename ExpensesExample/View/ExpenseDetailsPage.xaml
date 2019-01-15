@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ExpensesExample.ViewModel"
              x:Class="ExpensesExample.View.ExpenseDetailsPage">
-    <StackLayout Margin="16,20,16,0">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:ExpenseDetailsVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="16,20,16,0"
+                 BindingContext="{StaticResource vm}">
         <Label Text="Nombre:"
                Style="{StaticResource subtitleLabel}"/>
-        <Label Text="Uber"
+        <Label Text="{Binding SelectedExpense.Name}"
                Style="{StaticResource mainValueLabel}"/>
         <Label Text="Cantidad gastada:"
                Style="{StaticResource subtitleLabel}"/>
-        <Label Text="$888.88"
+        <Label Text="{Binding SelectedExpense.Ammount}"
                Style="{StaticResource mainValueLabel}"/>
         <Label Text="Fecha de gasto:"
                Style="{StaticResource subtitleLabel}"/>
-        <Label Text="15 Ene 2019"
+        <Label Text="{Binding SelectedExpense.Date, StringFormat='{0:dddd, dd MMMM yyyy}'}"
                Style="{StaticResource mainValueLabel}"/>
         <Label Text="Categoría del gasto:"
                Style="{StaticResource subtitleLabel}"/>
-        <Label Text="Transporte"
+        <Label Text="{Binding SelectedExpense.Category}"
                Style="{StaticResource mainValueLabel}"/>
     </StackLayout>
 </ContentPage>

@@ -17,11 +17,19 @@
     
     <ContentPage.Content>
         <ListView BindingContext="{StaticResource vm}"
-                  ItemsSource="{Binding Expenses}">
+                  ItemsSource="{Binding Expenses}"
+                  SelectedItem="{Binding SelectedExpense, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}"
-                              Detail="{Binding Ammount, StringFormat='{0:c}'}"/>
+                              Detail="{Binding Ammount, StringFormat='{0:c}'}">
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Borrar"
+                                      IsDestructive="true"
+                                      Command="{Binding Source={StaticResource vm}, Path=DeleteExpenseCommand}"
+                                      CommandParameter="{Binding}"/>
+                        </TextCell.ContextActions>
+                    </TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

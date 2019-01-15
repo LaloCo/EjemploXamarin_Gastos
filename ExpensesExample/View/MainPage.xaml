@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:ExpensesExample.View"
+            x:Class="ExpensesExample.View.MainPage">
+    <views:CategoriesPage Title="Categorías"
+                          Icon="categorias"/>
+    <views:ExpensesPage Title="Gastos"
+                        Icon="gastos"/>
+</TabbedPage>

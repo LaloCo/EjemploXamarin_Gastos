@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using ExpensesExample.Model;
@@ -52,13 +53,20 @@ namespace ExpensesExample.ViewModel
             }
         }
 
+        public ObservableCollection<string> Categories { get; set; }
+
         public ICommand SaveExpenseCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public NewExpenseVM()
         {
+            Date = DateTime.Now;
             SaveExpenseCommand = new Command(SaveExpense);
+            Categories = new ObservableCollection<string>();
+            var categories = Model.Category.GetCategories();
+            foreach (var category in categories)
+                Categories.Add(category);
         }
 
         void SaveExpense(object obj)

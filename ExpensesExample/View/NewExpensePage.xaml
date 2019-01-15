@@ -15,19 +15,23 @@
                      Command="{Binding Source={StaticResource vm}, Path=SaveExpenseCommand}"/>
     </ContentPage.ToolbarItems>   
     
-    <StackLayout Margin="16,20,16,0">
+    <StackLayout Margin="16,20,16,0"
+                 BindingContext="{StaticResource vm}">
         <Label Text="Escribe tu nombre:"
                Style="{StaticResource subtitleLabel}"/>
-        <Entry Placeholder="Uber"/>
+        <Entry Placeholder="Uber"
+               Text="{Binding Name, Mode=TwoWay}"/>
         <Label Text="Escribe la cantidad gastada:"
                Style="{StaticResource subtitleLabel}"/>
         <Entry Placeholder="$88.00"
+               Text="{Binding Ammount, Mode=TwoWay}"
                Keyboard="Numeric"/>
         <Label Text="Selecciona la fecha de gasto:"
                Style="{StaticResource subtitleLabel}"/>
-        <DatePicker/>
+        <DatePicker Date="{Binding Date, Mode=TwoWay}"/>
         <Label Text="Selecciona la categoría del gasto:"
                Style="{StaticResource subtitleLabel}"/>
-        <Picker/>
+        <Picker ItemsSource="{Binding Categories}"
+                SelectedItem="{Binding Category, Mode=TwoWay}"/>
     </StackLayout>
 </ContentPage>

@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ExpensesExample.View.CategoriesPage">
-    <ContentPage.Content>
-        <Label Text="Esta es la CategoriesPage"/>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ExpensesExample.ViewModel"
+             x:Class="ExpensesExample.View.CategoriesPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:CategoriesVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ListView ItemsSource="{Binding Source={StaticResource vm}, Path=Progresses}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="16,0">
+                        <Label Text="{Binding Name}"/>
+                        <ProgressBar Progress="{Binding ProgressValue}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

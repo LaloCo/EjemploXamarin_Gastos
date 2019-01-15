@@ -64,9 +64,11 @@ namespace ExpensesExample.ViewModel
             Expenses.Clear();
             var expenses = await Expense.GetExpensesAsync();
 
-            foreach (var expense in expenses)
-                Expenses.Add(expense);
-
+            if (expenses != null)
+            {
+                foreach (var expense in expenses)
+                    Expenses.Add(expense);
+            }
             IsRefreshing = false;
         }
 

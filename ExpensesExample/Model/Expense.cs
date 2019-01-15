@@ -66,7 +66,7 @@ namespace ExpensesExample.Model
             {
                 return await App.MobileServiceClient.GetTable<Expense>().ToListAsync();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }

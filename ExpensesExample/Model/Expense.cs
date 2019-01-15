@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ExpensesExample.Model
@@ -27,9 +28,47 @@ namespace ExpensesExample.Model
                 await App.MobileServiceClient.GetTable<Expense>().InsertAsync(this);
                 return true;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public async Task<bool> UpdateExpense()
+        {
+            try
+            {
+                await App.MobileServiceClient.GetTable<Expense>().UpdateAsync(this);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteExpense()
+        {
+            try
+            {
+                await App.MobileServiceClient.GetTable<Expense>().DeleteAsync(this);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static async Task<List<Expense>> GetExpensesAsync()
+        {
+            try
+            {
+                return await App.MobileServiceClient.GetTable<Expense>().ToListAsync();
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
     }

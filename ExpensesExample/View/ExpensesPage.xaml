@@ -16,6 +16,14 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <Label Text="Esta es la ExpensesPage"/>
+        <ListView BindingContext="{StaticResource vm}"
+                  ItemsSource="{Binding Expenses}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}"
+                              Detail="{Binding Ammount, StringFormat='{0:c}'}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

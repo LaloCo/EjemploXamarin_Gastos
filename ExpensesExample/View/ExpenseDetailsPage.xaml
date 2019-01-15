@@ -1,5 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ExpensesExample.View.ExpenseDetailsPage">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpensesExample.View.ExpenseDetailsPage">
+    <StackLayout Margin="16,20,16,0">
+        <Label Text="Nombre:"
+               Style="{StaticResource subtitleLabel}"/>
+        <Label Text="Uber"
+               Style="{StaticResource mainValueLabel}"/>
+        <Label Text="Cantidad gastada:"
+               Style="{StaticResource subtitleLabel}"/>
+        <Label Text="$888.88"
+               Style="{StaticResource mainValueLabel}"/>
+        <Label Text="Fecha de gasto:"
+               Style="{StaticResource subtitleLabel}"/>
+        <Label Text="15 Ene 2019"
+               Style="{StaticResource mainValueLabel}"/>
+        <Label Text="Categoría del gasto:"
+               Style="{StaticResource subtitleLabel}"/>
+        <Label Text="Transporte"
+               Style="{StaticResource mainValueLabel}"/>
+    </StackLayout>
 </ContentPage>

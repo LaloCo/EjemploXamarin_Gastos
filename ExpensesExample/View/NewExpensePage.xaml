@@ -1,5 +1,33 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ExpensesExample.View.NewExpensePage">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ExpensesExample.ViewModel"
+             x:Class="ExpensesExample.View.NewExpensePage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:NewExpenseVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar"
+                     Command="{Binding Source={StaticResource vm}, Path=SaveExpenseCommand}"/>
+    </ContentPage.ToolbarItems>   
+    
+    <StackLayout Margin="16,20,16,0">
+        <Label Text="Escribe tu nombre:"
+               Style="{StaticResource subtitleLabel}"/>
+        <Entry Placeholder="Uber"/>
+        <Label Text="Escribe la cantidad gastada:"
+               Style="{StaticResource subtitleLabel}"/>
+        <Entry Placeholder="$88.00"
+               Keyboard="Numeric"/>
+        <Label Text="Selecciona la fecha de gasto:"
+               Style="{StaticResource subtitleLabel}"/>
+        <DatePicker/>
+        <Label Text="Selecciona la categoría del gasto:"
+               Style="{StaticResource subtitleLabel}"/>
+        <Picker/>
+    </StackLayout>
 </ContentPage>

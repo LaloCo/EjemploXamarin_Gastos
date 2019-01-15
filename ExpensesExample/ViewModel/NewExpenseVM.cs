@@ -69,7 +69,7 @@ namespace ExpensesExample.ViewModel
                 Categories.Add(category);
         }
 
-        void SaveExpense(object obj)
+        async void SaveExpense(object obj)
         {
             Expense expense = new Expense
             {
@@ -78,10 +78,12 @@ namespace ExpensesExample.ViewModel
                 Category = Category,
                 Date = Date
             };
-            if (expense.InsertExpense())
-                App.Current.MainPage.Navigation.PopAsync();
+
+            var result = await expense.InsertExpense();
+            if (result)
+                await App.Current.MainPage.Navigation.PopAsync();
             else
-                App.Current.MainPage.DisplayAlert("Error", "Hubo un error guardando el gasto", "Ok");
+                await App.Current.MainPage.DisplayAlert("Error", "Hubo un error guardando el gasto", "Ok");
         }
 
         void OnPropertyChanged(string propertyName)

@@ -2,12 +2,15 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ExpensesExample.View;
+using Microsoft.WindowsAzure.MobileServices;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ExpensesExample
 {
     public partial class App : Application
     {
+        public static MobileServiceClient MobileServiceClient = new MobileServiceClient("https://personalexpenses001.azurewebsites.net");
+
         public App()
         {
             InitializeComponent();

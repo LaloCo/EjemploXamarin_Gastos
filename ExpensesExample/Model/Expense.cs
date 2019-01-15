@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+
 namespace ExpensesExample.Model
 {
     public class Expense
@@ -15,12 +17,20 @@ namespace ExpensesExample.Model
 
         public Expense()
         {
+
         }
 
-        public bool InsertExpense()
+        public async Task<bool> InsertExpense()
         {
-            // Todo: insert expense (this)
-            return true;
+            try
+            {
+                await App.MobileServiceClient.GetTable<Expense>().InsertAsync(this);
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
         }
     }
 }

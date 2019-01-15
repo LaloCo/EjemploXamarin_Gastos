@@ -18,7 +18,10 @@
     <ContentPage.Content>
         <ListView BindingContext="{StaticResource vm}"
                   ItemsSource="{Binding Expenses}"
-                  SelectedItem="{Binding SelectedExpense, Mode=TwoWay}">
+                  SelectedItem="{Binding SelectedExpense, Mode=TwoWay}"
+                  RefreshCommand="{Binding RefreshExpensesCommand}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  IsPullToRefreshEnabled="true">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}"

@@ -12,6 +12,7 @@ namespace ExpensesExample.ViewModel
     {
         public ICommand NewExpenseCommand { get; set; }
         public ICommand DeleteExpenseCommand { get; set; }
+        public ICommand RefreshExpensesCommand { get; set; }
 
         public ObservableCollection<Expense> Expenses { get; set; }
 
@@ -27,12 +28,24 @@ namespace ExpensesExample.ViewModel
             }
         }
 
+        private bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set
+            {
+                isRefreshing = value;
+                OnPropertyChanged("IsRefreshing");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ExpensesVM()
         {
             NewExpenseCommand = new Command(NewCommandNavigation);
             DeleteExpenseCommand = new Command<Expense>(DeleteExpense);
+            RefreshExpensesCommand = new Command(GetExpenses);
 
             Expenses = new ObservableCollection<Expense>();
 
@@ -42,15 +55,19 @@ namespace ExpensesExample.ViewModel
         async void DeleteExpense(Expense expense)
         {
             await expense.DeleteExpense();
+            Expenses.Remove(expense);
         }
 
         private async void GetExpenses()
         {
+            IsRefreshing = true;
             Expenses.Clear();
             var expenses = await Expense.GetExpensesAsync();
 
             foreach (var expense in expenses)
                 Expenses.Add(expense);
+
+            IsRefreshing = false;
         }
 
         void NewCommandNavigation(object obj)

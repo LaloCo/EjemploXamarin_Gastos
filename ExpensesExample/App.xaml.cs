@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ExpensesExample.View;
 using Microsoft.WindowsAzure.MobileServices;
+using ExpensesExample.Resources;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ExpensesExample
@@ -14,6 +15,9 @@ namespace ExpensesExample
         public App()
         {
             InitializeComponent();
+
+            //! Testing only
+            AppResources.Culture = new System.Globalization.CultureInfo("es");
 
             MainPage = new NavigationPage(new MainPage());
         }

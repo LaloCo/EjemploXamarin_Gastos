@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+    <data name="transportCategory">
+        <value>Transporte</value>
+        <comment>This is the name for the transport category</comment>
+    </data>
+    <data name="personalCategory">
+        <value>Personal</value>
+        <comment>This is the name for the personal category</comment>
+    </data>
+    <data name="healthCategory">
+        <value>Salud</value>
+        <comment>This is the name for the health category</comment>
+    </data>
+    <data name="savingsCategory">
+        <value>Ahorro</value>
+        <comment>This is the name for the savings category</comment>
+    </data>
+    <data name="playCategory">
+        <value>Ocio</value>
+        <comment>This is the name for the play category</comment>
+    </data>
+    <data name="housingCategory">
+        <value>Hogar</value>
+        <comment>This is the name for the housing category</comment>
+    </data>
+    <data name="otherCategory">
+        <value>Otro</value>
+        <comment>This is the name for the other category</comment>
+    </data>
+</root>

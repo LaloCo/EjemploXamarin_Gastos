@@ -2,7 +2,28 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:ExpensesExample.View"
-            x:Class="ExpensesExample.View.MainPage">
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            x:Class="ExpensesExample.View.MainPage"
+            BarBackgroundColor="{StaticResource mainColor}"
+            BarTextColor="White"
+            android:TabbedPage.BarSelectedItemColor="White"
+            android:TabbedPage.BarItemColor="#44FFFFFF">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Image HeightRequest="{OnPlatform iOS=25, Android=35}"
+                   Source="{OnPlatform iOS=wallet-filled-money-tool.png, Android=appicon.png}"/>
+            <Label Text="Finanzas Personales"
+                   Margin="10,0,0,0"
+                   FontSize="{OnPlatform iOS=18, Android=25, Default=20}"
+                   FontAttributes="{OnPlatform Android=Bold}"
+                   TextColor="{OnPlatform iOS=Black, Android=White, Default=Black}"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    
     <views:CategoriesPage Title="Categorías"
                           Icon="categorias"/>
     <views:ExpensesPage Title="Gastos"

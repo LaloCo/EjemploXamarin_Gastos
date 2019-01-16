@@ -95,6 +95,8 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomRenderers\CustomProgressBarRenderer.cs" />
+    <Compile Include="CustomRenderers\CustomTextCellRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -167,5 +169,11 @@
     <BundleResource Include="Resources\gastos.png" />
     <BundleResource Include="Resources\gastos%402x.png" />
     <BundleResource Include="Resources\gastos%403x.png" />
+    <BundleResource Include="Resources\wallet-filled-money-tool.png" />
+    <BundleResource Include="Resources\wallet-filled-money-tool%403x.png" />
+    <BundleResource Include="Resources\wallet-filled-money-tool%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomRenderers\" />
   </ItemGroup>
 </Project>

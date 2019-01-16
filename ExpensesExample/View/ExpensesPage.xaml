@@ -25,6 +25,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}"
+                              StyleId="{OnPlatform Android=blue, iOS=disclosure-indicator}"
                               Detail="{Binding Ammount, StringFormat='{0:c}'}">
                         <TextCell.ContextActions>
                             <MenuItem Text="Borrar"

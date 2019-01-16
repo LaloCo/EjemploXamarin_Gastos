@@ -11,28 +11,58 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <StackLayout>
-        <Label x:Name="titleLabel"
-               Text="Categorías"
-               FontSize="40"
-               Margin="16,0,0,0"
-               FontAttributes="Bold">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup Name="OrientationStates">
-                    <VisualState Name="Portrait">
-                        <VisualState.Setters>
-                            <Setter Property="IsVisible" Value="true"/>
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState Name="Landscape">
-                        <VisualState.Setters>
-                            <Setter Property="IsVisible" Value="false"/>
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-        </Label>
-        <ListView ItemsSource="{Binding Source={StaticResource vm}, Path=Progresses}">
+    <StackLayout BindingContext="{StaticResource vm}">
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="titleLabel"
+                   Text="Categorías"
+                   FontSize="40"
+                   Margin="16,0,0,0"
+                   FontAttributes="Bold">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="OrientationStates">
+                        <VisualState Name="Portrait">
+                            <VisualState.Setters>
+                                <Setter Property="IsVisible" Value="true"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Landscape">
+                            <VisualState.Setters>
+                                <Setter Property="IsVisible" Value="false"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Label>
+            <ImageButton Command="{Binding ShareCommand}"
+                         CommandParameter="{Binding HasProgresses}"
+                         HeightRequest="50"
+                         WidthRequest="50"
+                         Margin="20,0,0,0"
+                         Padding="10"
+                         BackgroundColor="{StaticResource mainColor}"
+                         Source="export.png">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="CommonStates">
+                        <VisualState Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="1"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="0.8"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="LightGray"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+        </StackLayout>
+        <ListView ItemsSource="{Binding Progresses}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell StyleId="blue">

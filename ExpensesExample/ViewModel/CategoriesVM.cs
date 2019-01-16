@@ -68,7 +68,6 @@ namespace ExpensesExample.ViewModel
                 }
             }
 
-            // Todo: share file
             IShare shareDependency = DependencyService.Get<IShare>();
             await shareDependency.Show("Reporte de Gastos", "Reporte de gastos por categoría", reportFile.Path);
         }

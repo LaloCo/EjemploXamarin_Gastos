@@ -88,5 +88,29 @@ namespace ExpensesExample.Resources {
                 return ResourceManager.GetString("otherCategory", resourceCulture);
             }
         }
+        
+        internal static string namePrompt {
+            get {
+                return ResourceManager.GetString("namePrompt", resourceCulture);
+            }
+        }
+        
+        internal static string ammountPrompt {
+            get {
+                return ResourceManager.GetString("ammountPrompt", resourceCulture);
+            }
+        }
+        
+        internal static string datePrompt {
+            get {
+                return ResourceManager.GetString("datePrompt", resourceCulture);
+            }
+        }
+        
+        internal static string categoryPrompt {
+            get {
+                return ResourceManager.GetString("categoryPrompt", resourceCulture);
+            }
+        }
     }
 }

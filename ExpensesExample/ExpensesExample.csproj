@@ -20,6 +20,8 @@
     <Folder Include="View\" />
     <Folder Include="ViewModel\Interfaces\" />
     <Folder Include="Resources\" />
+    <Folder Include="View\MarkyupExtensions\" />
+    <Folder Include="ViewModel\ValueConverters\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppResources.resx">
@@ -37,13 +39,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\AppResources.Designer.cs">
-      <DependentUpon>AppResources.es.resx</DependentUpon>
+      <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\AppResources.es.Designer.cs">
       <DependentUpon>AppResources.es.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\AppResources.Designer.cs">
-      <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

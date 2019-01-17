@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:ExpensesExample.ViewModel"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:me="clr-namespace:ExpensesExample.View.MarkyupExtensions"
              ios:Page.UseSafeArea="true"
              x:Class="ExpensesExample.View.NewExpensePage"
              Title="Nuevo gasto">
@@ -20,19 +21,19 @@
     
     <StackLayout Margin="16,20,16,0"
                  BindingContext="{StaticResource vm}">
-        <Label Text="Escribe tu nombre:"
+        <Label Text="{me:Translate ResourceName=namePrompt}"
                Style="{StaticResource subtitleLabel}"/>
         <Entry Placeholder="Uber"
                Text="{Binding Name, Mode=TwoWay}"/>
-        <Label Text="Escribe la cantidad gastada:"
+        <Label Text="{me:Translate ResourceName=ammountPrompt}"
                Style="{StaticResource subtitleLabel}"/>
         <Entry Placeholder="$88.00"
                Text="{Binding Ammount, Mode=TwoWay}"
                Keyboard="Numeric"/>
-        <Label Text="Selecciona la fecha de gasto:"
+        <Label Text="{me:Translate ResourceName=datePrompt}"
                Style="{StaticResource subtitleLabel}"/>
         <DatePicker Date="{Binding Date, Mode=TwoWay}"/>
-        <Label Text="Selecciona la categoría del gasto:"
+        <Label Text="{me:Translate ResourceName=categoryPrompt}"
                Style="{StaticResource subtitleLabel}"/>
         <Picker ItemsSource="{Binding Categories}"
                 SelectedItem="{Binding Category, Mode=TwoWay}"/>

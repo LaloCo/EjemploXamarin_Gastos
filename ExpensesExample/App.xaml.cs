@@ -17,7 +17,7 @@ namespace ExpensesExample
             InitializeComponent();
 
             //! Testing only
-            AppResources.Culture = new System.Globalization.CultureInfo("es");
+            // AppResources.Culture = new System.Globalization.CultureInfo("es");
 
             MainPage = new NavigationPage(new MainPage());
         }

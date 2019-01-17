@@ -41,4 +41,16 @@
         <value>Otro</value>
         <comment>This is the name for the other category</comment>
     </data>
+    <data name="namePrompt">
+        <value>Escribe tu nombre:</value>
+    </data>
+    <data name="ammountPrompt">
+        <value>Escribe la cantidad gastada:</value>
+    </data>
+    <data name="datePrompt">
+        <value>Selecciona la fecha de gasto:</value>
+    </data>
+    <data name="categoryPrompt">
+        <value>Selecciona la categoría del gasto:</value>
+    </data>
 </root>

@@ -41,4 +41,16 @@
         <value>Other</value>
         <comment>This is the name for the other category</comment>
     </data>
+    <data name="namePrompt">
+        <value>Write your name:</value>
+    </data>
+    <data name="ammountPrompt">
+        <value>Write the expense ammount:</value>
+    </data>
+    <data name="datePrompt">
+        <value>Select the date of the expense:</value>
+    </data>
+    <data name="categoryPrompt">
+        <value>Select the expense category:</value>
+    </data>
 </root>

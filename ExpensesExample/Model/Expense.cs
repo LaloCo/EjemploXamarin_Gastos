@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace ExpensesExample.Model
 {
@@ -26,10 +28,12 @@ namespace ExpensesExample.Model
             try
             {
                 await App.MobileServiceClient.GetTable<Expense>().InsertAsync(this);
+                Analytics.TrackEvent("Gasto insertado");
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Crashes.TrackError(ex);
                 return false;
             }
         }
@@ -39,10 +43,12 @@ namespace ExpensesExample.Model
             try
             {
                 await App.MobileServiceClient.GetTable<Expense>().UpdateAsync(this);
+                Analytics.TrackEvent("Gasto actualizado");
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Crashes.TrackError(ex);
                 return false;
             }
         }
@@ -52,10 +58,12 @@ namespace ExpensesExample.Model
             try
             {
                 await App.MobileServiceClient.GetTable<Expense>().DeleteAsync(this);
+                Analytics.TrackEvent("Gasto borrado");
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Crashes.TrackError(ex);
                 return false;
             }
         }
@@ -64,10 +72,12 @@ namespace ExpensesExample.Model
         {
             try
             {
+                Analytics.TrackEvent("Gastos leídos");
                 return await App.MobileServiceClient.GetTable<Expense>().ToListAsync();
             }
             catch (Exception ex)
             {
+                Crashes.TrackError(ex);
                 return null;
             }
         }
